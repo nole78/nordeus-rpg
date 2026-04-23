@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using NordeusRPG.Enums;
 
-public class Move : MonoBehaviour
+namespace NordeusRPG.Models
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Move
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public string Name { get; set; } = string.Empty;
+        public MoveType Type { get; set; } = MoveType.Physical;
+        public int BaseValue { get; set; } = 0;
+        public int Duration { get; set; } = 0;
     }
 }

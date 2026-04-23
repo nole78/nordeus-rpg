@@ -1,18 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class BattleState : MonoBehaviour
+
+namespace NordeusRPG.Models
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BattleState
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Character Hero { get; set; }
+        public Character Enemy { get; set; }
+        public List<StatusEffect> HeroStatusEffects { get; set; } = new List<StatusEffect>();
+        public int TurnNumber { get; set; } = 1;
     }
 }

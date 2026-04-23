@@ -12,5 +12,6 @@ namespace NordeusRPG.Models
         public int Defense { get; set; } = 1;
         public int Magic { get; set; } = 1;
         public List<Move> Moves { get; set; } = new List<Move>();
+        public List<StatusEffect> StatusEffects { get; set; } = new List<StatusEffect>();
     }
 }

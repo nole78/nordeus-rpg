@@ -7,6 +7,6 @@ namespace NordeusRPG.Models
     {
         public Character Hero { get; set; }
         public Character Enemy { get; set; }
-        public int TurnNumber { get; set; } = 1;
+        public int CurrentTurnNumber { get; set; } = 1;
     }
 }

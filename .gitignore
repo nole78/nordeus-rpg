@@ -109,7 +109,7 @@ InitTestScene*.unity*
 # Unity
 Library/
 Temp/
-Unity/obj
+Unity/obj/
 
 # API
 TurnBasedRPG.API/bin/

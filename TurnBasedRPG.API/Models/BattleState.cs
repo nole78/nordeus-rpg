@@ -2,8 +2,8 @@
 {
     public class BattleState
     {
-        public Character Hero { get; set; }
-        public Character Enemy { get; set; }
+        public required Character Hero { get; set; }
+        public required Character Enemy { get; set; }
         public int CurrentTurn { get; set; } = 1;
     }
 }

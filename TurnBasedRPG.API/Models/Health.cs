@@ -1,5 +1,4 @@
-﻿
-namespace NordeusRPG.Models
+﻿namespace TurnBasedRPG.API.Models
 {
     public class Health
     {
@@ -16,14 +15,18 @@ namespace NordeusRPG.Models
         {
             CurrentHealth -= damage;
             if (CurrentHealth < 0)
+            {
                 CurrentHealth = 0;
+            }
         }
 
         public void Heal(int healAmount)
         {
             CurrentHealth += healAmount;
             if (CurrentHealth > MaxHealth)
+            {
                 CurrentHealth = MaxHealth;
+            }
         }
 
         public bool isDead()

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using TurnBasedRPG.API.DTOs;
-using TurnBasedRPG.API.Services;
+using TurnBasedRPG.API.Enums;
+using TurnBasedRPG.API.Services.CombatService;
+using TurnBasedRPG.API.Services.GameService;
 
 namespace TurnBasedRPG.API.Controllers
 {
@@ -21,8 +23,18 @@ namespace TurnBasedRPG.API.Controllers
         [HttpGet("run-config")]
         public ActionResult<RunConfigResponse> GetRunConfig()
         {
-            var config = _gameService.GenerateRunConfig();
-            return Ok(config);
+            var result = _gameService.GenerateRunConfig();
+
+            if(!result.IsSuccess)
+            {
+                return result.ErrorType switch
+                {
+                    ErrorType.NotFound => NotFound(new { message = result.Error }),
+                    ErrorType.Validation => BadRequest(new { message = result.Error }),
+                    _ => StatusCode(500, new { message = result.Error })
+                };
+            }
+            return Ok(result.Value);
         }
         [HttpPost("next-move")]
         public ActionResult<NextMoveResponse> NextMove([FromBody] NextMoveRequest request)

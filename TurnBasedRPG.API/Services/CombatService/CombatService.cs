@@ -28,7 +28,7 @@ namespace TurnBasedRPG.API.Services.CombatService
             var move = hero.Moves.FirstOrDefault(m => m.Id == request.PlayerMove);
             if (move == null)
             {
-                Result<NextMoveResponse>.Failure("Invalid hero move", ErrorType.Validation);
+                return Result<NextMoveResponse>.Failure("Invalid hero move", ErrorType.Validation);
             }
             PerformMove(hero, enemy, move);
 

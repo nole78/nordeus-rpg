@@ -1,6 +1,6 @@
 ﻿using TurnBasedRPG.API.DTOs;
 
-namespace TurnBasedRPG.API.Services
+namespace TurnBasedRPG.API.Services.CombatService
 {
     public interface ICombatService
     {

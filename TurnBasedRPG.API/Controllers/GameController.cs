@@ -40,7 +40,16 @@ namespace TurnBasedRPG.API.Controllers
         public ActionResult<NextMoveResponse> NextMove([FromBody] NextMoveRequest request)
         {
             var result = _combatService.ProcessTurn(request);
-            return Ok(result);
+            if (!result.IsSuccess)
+            {
+                return result.ErrorType switch
+                { 
+                ErrorType.NotFound => NotFound(new { message = result.Error }),
+                ErrorType.Validation => BadRequest(new { message = result.Error }),
+                _ => StatusCode(500, new { message = result.Error })
+                };
+            }
+            return Ok(result.Value);
         }
     }
 }

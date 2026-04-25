@@ -18,19 +18,20 @@ namespace TurnBasedRPG.API.Services.CombatService
             _effectService = effectService;
         }
 
-        public NextMoveResponse ProcessTurn(NextMoveRequest request)
+        public Result<NextMoveResponse> ProcessTurn(NextMoveRequest request)
         {
             var state = request.CurrentState;
-
             var hero = state.Hero;
             var enemy = state.Enemy;
 
             // Player move
             var move = hero.Moves.FirstOrDefault(m => m.Id == request.PlayerMove);
-            if (move != null)
+            if (move == null)
             {
-                PerformMove(hero, enemy, move);
+                Result<NextMoveResponse>.Failure("Invalid hero move", ErrorType.Validation);
             }
+            PerformMove(hero, enemy, move);
+
 
             // Enemy move
             if (!enemy.Health.IsDead())
@@ -42,10 +43,7 @@ namespace TurnBasedRPG.API.Services.CombatService
             _effectService.TickEffects(hero);
             _effectService.TickEffects(enemy);
             // Return state
-            return new NextMoveResponse
-            {
-                UpdatedState = state
-            };
+            return Result<NextMoveResponse>.Success(new NextMoveResponse { UpdatedState = state });
         }
 
         private void PerformMove(Character attacker, Character defender, Move move)

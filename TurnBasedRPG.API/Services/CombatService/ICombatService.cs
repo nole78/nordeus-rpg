@@ -1,9 +1,10 @@
 ﻿using TurnBasedRPG.API.DTOs;
+using TurnBasedRPG.API.Models;
 
 namespace TurnBasedRPG.API.Services.CombatService
 {
     public interface ICombatService
     {
-        NextMoveResponse ProcessTurn(NextMoveRequest request);
+        Result<NextMoveResponse> ProcessTurn(NextMoveRequest request);
     }
 }

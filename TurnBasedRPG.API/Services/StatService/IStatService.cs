@@ -1,4 +1,4 @@
-﻿using TurnBasedRPG.API.Models;
+﻿using TurnBasedRPG.API.Domain.Models;
 
 namespace TurnBasedRPG.API.Services.StatService
 {

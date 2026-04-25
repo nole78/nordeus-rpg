@@ -1,4 +1,4 @@
-﻿namespace TurnBasedRPG.API.Models
+﻿namespace TurnBasedRPG.API.Domain.Models
 {
     public class BattleState
     {

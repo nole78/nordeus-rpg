@@ -1,6 +1,6 @@
-﻿using TurnBasedRPG.API.DTOs;
-using TurnBasedRPG.API.Enums;
-using TurnBasedRPG.API.Models;
+﻿using TurnBasedRPG.API.Domain.Enums;
+using TurnBasedRPG.API.Domain.Models;
+using TurnBasedRPG.API.DTOs;
 using TurnBasedRPG.API.Services.EffectService;
 using TurnBasedRPG.API.Services.StatService;
 

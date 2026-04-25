@@ -1,6 +1,6 @@
-﻿using TurnBasedRPG.API.Enums;
+﻿using TurnBasedRPG.API.Domain.Enums;
 
-namespace TurnBasedRPG.API.Models
+namespace TurnBasedRPG.API.Domain.Models
 {
     public class MoveEffect
     {

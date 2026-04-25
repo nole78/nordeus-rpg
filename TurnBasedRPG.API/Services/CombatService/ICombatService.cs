@@ -1,5 +1,5 @@
-﻿using TurnBasedRPG.API.DTOs;
-using TurnBasedRPG.API.Models;
+﻿using TurnBasedRPG.API.Domain.Models;
+using TurnBasedRPG.API.DTOs;
 
 namespace TurnBasedRPG.API.Services.CombatService
 {

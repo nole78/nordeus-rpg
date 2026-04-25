@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TurnBasedRPG.API.Models;
+using TurnBasedRPG.API.Domain.Models;
 
 namespace TurnBasedRPG.API.DTOs
 {

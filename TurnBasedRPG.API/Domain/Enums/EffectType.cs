@@ -1,4 +1,4 @@
-﻿namespace TurnBasedRPG.API.Enums
+﻿namespace TurnBasedRPG.API.Domain.Enums
 {
     public enum EffectType
     {

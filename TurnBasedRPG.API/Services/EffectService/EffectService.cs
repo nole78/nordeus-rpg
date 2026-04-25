@@ -1,5 +1,5 @@
-﻿using TurnBasedRPG.API.Enums;
-using TurnBasedRPG.API.Models;
+﻿using TurnBasedRPG.API.Domain.Enums;
+using TurnBasedRPG.API.Domain.Models;
 
 namespace TurnBasedRPG.API.Services.EffectService
 {

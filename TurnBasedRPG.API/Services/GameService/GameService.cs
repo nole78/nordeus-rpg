@@ -1,8 +1,8 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using TurnBasedRPG.API.Domain.Enums;
+using TurnBasedRPG.API.Domain.Models;
 using TurnBasedRPG.API.DTOs;
-using TurnBasedRPG.API.Enums;
-using TurnBasedRPG.API.Models;
 
 namespace TurnBasedRPG.API.Services.GameService
 {

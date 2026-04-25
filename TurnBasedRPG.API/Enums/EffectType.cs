@@ -4,8 +4,10 @@
     {
         BuffAttack,
         BuffDefense,
+        BuffMagic,
         DebuffAttack,
         DebuffDefense,
+        DebuffMagic,
         Poison
     }
 }

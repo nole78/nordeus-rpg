@@ -29,7 +29,7 @@
             }
         }
 
-        public bool isDead()
+        public bool IsDead()
         {
             return CurrentHealth <= 0;
         }

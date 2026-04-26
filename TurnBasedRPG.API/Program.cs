@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Http.Json;
 using System.Text.Json.Serialization;
+using TurnBasedRPG.API.DTOs;
+using TurnBasedRPG.API.Middleware;
 using TurnBasedRPG.API.Services.CombatService;
 using TurnBasedRPG.API.Services.EffectService;
 using TurnBasedRPG.API.Services.GameService;
 using TurnBasedRPG.API.Services.StatService;
+using TurnBasedRPG.API.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,7 @@ builder.Services.AddControllers()
     });
 
 // Services
+builder.Services.AddScoped<IValidator<NextMoveRequest>, NextMoveRequestValidator>();
 builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddScoped<IStatService, StatService>();
 builder.Services.AddScoped<IEffectService, EffectService>();

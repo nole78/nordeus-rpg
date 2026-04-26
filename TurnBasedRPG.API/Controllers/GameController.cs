@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TurnBasedRPG.API.Domain.Enums;
 using TurnBasedRPG.API.DTOs;
+using TurnBasedRPG.API.Middleware;
 using TurnBasedRPG.API.Services.CombatService;
 using TurnBasedRPG.API.Services.GameService;
 using TurnBasedRPG.API.Validators;
@@ -14,11 +15,13 @@ namespace TurnBasedRPG.API.Controllers
     {
         private readonly IGameService _gameService;
         private readonly ICombatService _combatService;
+        private readonly IValidator<NextMoveRequest> _validator;
 
-        public GameController(IGameService gameService, ICombatService combatService)
+        public GameController(IGameService gameService, ICombatService combatService,IValidator<NextMoveRequest> validator)
         {
             _gameService = gameService;
             _combatService = combatService;
+            _validator = validator;
         }
 
         [HttpGet("run-config")]
@@ -40,8 +43,15 @@ namespace TurnBasedRPG.API.Controllers
         [HttpPost("next-move")]
         public ActionResult<NextMoveResponse> NextMove([FromBody] NextMoveRequest request)
         {
-            if (NextMoveRequestValidator.Validate(request))
-                return BadRequest("Invalid battle state");
+            var validation = _validator.Validate(request);
+
+            if (!validation.IsValid)
+                return BadRequest(new 
+                {
+                    title =  "One or more validation errors occurred.",
+                    errors = validation.Errors 
+                });
+
             var result = _combatService.ProcessTurn(request);
             if (!result.IsSuccess)
             {

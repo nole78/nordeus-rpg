@@ -1,4 +1,4 @@
-using Assets.Scripts.DTOs;
+using NordeusRPG.DTOs;
 using System.Collections;
 using System.Text;
 using UnityEngine;

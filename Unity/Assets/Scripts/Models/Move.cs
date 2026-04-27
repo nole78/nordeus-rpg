@@ -1,5 +1,3 @@
-using Assets.Scripts.Models;
-using NordeusRPG.Enums;
 using System.Collections.Generic;
 
 namespace NordeusRPG.Models

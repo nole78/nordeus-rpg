@@ -1,12 +1,7 @@
-﻿using Assets.Scripts.Enums;
-using NordeusRPG.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NordeusRPG.Enums;
 
-namespace Assets.Scripts.Models
+
+namespace NordeusRPG.Models
 {
     public class EffectDefinition
     {

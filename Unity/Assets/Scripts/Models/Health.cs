@@ -1,6 +1,8 @@
-﻿
+﻿using System;
+
 namespace NordeusRPG.Models
 {
+    [Serializable]
     public class Health
     {
         public int MaxHealth { get; private set; } = 0;

@@ -27,4 +27,9 @@ public class GameManager : MonoBehaviour
     {
         CurrentEnemy = enemy;
     }
+
+    public void SetConfig(RunConfigResponse config)
+    {
+        Config = config;
+    }
 }

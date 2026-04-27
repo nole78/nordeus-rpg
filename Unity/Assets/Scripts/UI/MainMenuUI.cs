@@ -16,7 +16,7 @@ namespace Assets.Scripts.UI
         }
         private void OnSucces(RunConfigResponse config)
         {
-            GameManager.Instance.CurrentConfig = config;
+            GameManager.Instance.SetConfig(config);
 
             SceneManager.LoadScene("Map");
         }

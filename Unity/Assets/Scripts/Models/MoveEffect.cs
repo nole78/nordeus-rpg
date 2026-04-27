@@ -7,6 +7,6 @@ namespace NordeusRPG.Models
         public TargetType Target { get; set; } = TargetType.Enemy;
         public int Value { get; set; } = 0;
         public StatType ScalingStat { get; set; } = StatType.None;
-        public EffectDefinition? StatusEffect { get; set; }
+        public EffectDefinition StatusEffect { get; set; }
     }
 }

@@ -5,9 +5,10 @@ namespace NordeusRPG.Enums
     {
         BuffAttack,
         BuffDefense,
+        BuffMagic,
         DebuffAttack,
         DebuffDefense,
-        Poison,
-        HealOverTime
+        DebuffMagic,
+        Poison
     }
 }

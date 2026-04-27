@@ -3,15 +3,34 @@ using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using Newtonsoft.Json;
+using System;
 
 public class ApiClient : MonoBehaviour
 {
+    public ApiClient Instance;
     private const string BASE_URL = "http://localhost:5192"; // change if needed
-
-    public IEnumerator GetRunConfig(System.Action<RunConfigResponse> onSuccess,
-                                    System.Action<string> onError)
+    private static readonly JsonSerializerSettings Settings = new()
     {
-        var url = $"{BASE_URL}/Game/run-config";
+        MissingMemberHandling = MissingMemberHandling.Ignore,
+        NullValueHandling = NullValueHandling.Ignore,
+        ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
+    };
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    public IEnumerator GetRunConfig(Action<RunConfigResponse> onSuccess, Action<string> onError)
+    {
+        var url = $"{BASE_URL}/api/Game/run-config";
 
         using var request = UnityWebRequest.Get(url);
 
@@ -26,17 +45,22 @@ public class ApiClient : MonoBehaviour
         var json = request.downloadHandler.text;
 
         // TODO handle exception here
-        var data = JsonUtility.FromJson<RunConfigResponse>(json);
-        onSuccess?.Invoke(data);
+        try
+        {
+            var data = JsonConvert.DeserializeObject<RunConfigResponse>(json, Settings);
+            onSuccess?.Invoke(data);
+        }
+        catch (Exception ex)
+        {
+            onError?.Invoke(ex.Message);
+        }
     }
 
-    public IEnumerator SendNextMove(NextMoveRequest requestData,
-                                   System.Action<NextMoveResponse> onSuccess,
-                                   System.Action<string> onError)
+    public IEnumerator SendNextMove(NextMoveRequest requestData, Action<NextMoveResponse> onSuccess, Action<string> onError)
     {
-        var url = $"{BASE_URL}/Game/next-move";
+        var url = $"{BASE_URL}/api/Game/next-move";
 
-        var json = JsonUtility.ToJson(requestData);
+        var json = JsonConvert.SerializeObject(requestData,Settings);
         var bodyRaw = Encoding.UTF8.GetBytes(json);
 
         using var request = new UnityWebRequest(url, "POST");
@@ -57,7 +81,14 @@ public class ApiClient : MonoBehaviour
         var responseJson = request.downloadHandler.text;
 
         // TODO handle exception here
-        var data = JsonUtility.FromJson<NextMoveResponse>(responseJson);
-        onSuccess?.Invoke(data);
+        try
+        {
+            var data = JsonConvert.DeserializeObject<NextMoveResponse>(responseJson,Settings);
+            onSuccess?.Invoke(data);
+        }
+        catch(Exception ex)
+        {
+            onError?.Invoke(ex.Message);
+        }
     }
 }

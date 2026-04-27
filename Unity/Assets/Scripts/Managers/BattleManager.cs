@@ -1,13 +1,16 @@
+using NordeusRPG.Models;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Character hero;
+    private Character enemy;
     void Start()
     {
-        
+        hero = GameManager.Instance.Hero;
+        enemy = GameManager.Instance.CurrentEnemy;
     }
 
     // Update is called once per frame

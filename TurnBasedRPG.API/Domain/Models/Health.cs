@@ -1,8 +1,12 @@
-﻿namespace TurnBasedRPG.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TurnBasedRPG.API.Domain.Models
 {
     public class Health
     {
+        [Required]
         public int MaxHealth { get; private set; } = 0;
+        [Required]
         public int CurrentHealth { get; private set; } = 0;
 
         public Health(int maxHealth)
@@ -29,7 +33,7 @@
             }
         }
 
-        public bool isDead()
+        public bool IsDead()
         {
             return CurrentHealth <= 0;
         }

@@ -1,15 +1,34 @@
+using Microsoft.AspNetCore.Http.Json;
+using System.Text.Json.Serialization;
+using TurnBasedRPG.API.DTOs;
+using TurnBasedRPG.API.Middleware;
+using TurnBasedRPG.API.Services.CombatService;
+using TurnBasedRPG.API.Services.EffectService;
+using TurnBasedRPG.API.Services.GameService;
+using TurnBasedRPG.API.Services.StatService;
+using TurnBasedRPG.API.Validators;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
+
+// Services
+builder.Services.AddScoped<IValidator<NextMoveRequest>, NextMoveRequestValidator>();
+builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<IStatService, StatService>();
+builder.Services.AddScoped<IEffectService, EffectService>();
+builder.Services.AddScoped<ICombatService, CombatService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -17,9 +36,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
+app.UseAuthorization(); // If needed later
 app.MapControllers();
-
 app.Run();

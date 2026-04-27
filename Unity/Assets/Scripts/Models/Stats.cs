@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NordeusRPG.Models
 {
+    [Serializable]
     public class Stats
     {
         public int Attack { get; set; } = 1;

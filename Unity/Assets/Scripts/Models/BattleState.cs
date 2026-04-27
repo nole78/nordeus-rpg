@@ -1,8 +1,9 @@
-using System.Collections.Generic;
+using System;
 
 
 namespace NordeusRPG.Models
 {
+    [Serializable]
     public class BattleState
     {
         public Character Hero { get; set; }

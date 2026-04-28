@@ -23,7 +23,21 @@ public class MapUI : MonoBehaviour
                 GameManager.Instance.SetEnemy(enemy);
                 SceneManager.LoadScene("Battle");
             });
+
+            bool unlocked = CanAccess(enemy);
+            nodes[i].SetInteractable(unlocked);
         }
+    }
+
+    bool CanAccess(Character enemy)
+    {
+        int index = enemies.IndexOf(enemy);
+
+        if (index == 0) return true;
+
+        var prevEnemy = enemies[index - 1];
+
+        return GameManager.Instance.IsEnemyDefeated(prevEnemy.Id);
     }
 
     // Update is called once per frame

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 using System;
+using Newtonsoft.Json.Converters;
 
 public class ApiClient : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ApiClient : MonoBehaviour
     {
         MissingMemberHandling = MissingMemberHandling.Ignore,
         NullValueHandling = NullValueHandling.Ignore,
+        Converters = { new StringEnumConverter() },
         ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
     };
     private void Awake()
@@ -44,7 +46,6 @@ public class ApiClient : MonoBehaviour
 
         var json = request.downloadHandler.text;
 
-        // TODO handle exception here
         try
         {
             var data = JsonConvert.DeserializeObject<RunConfigResponse>(json, Settings);
@@ -80,7 +81,6 @@ public class ApiClient : MonoBehaviour
 
         var responseJson = request.downloadHandler.text;
 
-        // TODO handle exception here
         try
         {
             var data = JsonConvert.DeserializeObject<NextMoveResponse>(responseJson,Settings);

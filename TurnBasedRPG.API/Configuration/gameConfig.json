@@ -1,5 +1,6 @@
 {
   "hero": {
+    "id": "hero",
     "name": "Hero",
     "health": {
       "maxHealth": 100,
@@ -72,6 +73,7 @@
   },
   "enemies": [
     {
+      "id": "witch",
       "name": "Witch",
       "health": {
         "maxHealth": 100,
@@ -151,6 +153,7 @@
       ]
     },
     {
+      "id": "giant_spider",
       "name": "Giant Spider",
       "health": {
         "maxHealth": 150,
@@ -225,6 +228,7 @@
       ]
     },
     {
+      "id": "dragon",
       "name": "Dragon",
       "health": {
         "maxHealth": 200,
@@ -294,6 +298,7 @@
       ]
     },
     {
+      "id": "goblin_warrior",
       "name": "Goblin Warrior",
       "health": {
         "maxHealth": 80,
@@ -368,6 +373,7 @@
       ]
     },
     {
+      "id": "goblin_mage",
       "name": "Goblin Mage",
       "health": {
         "maxHealth": 80,

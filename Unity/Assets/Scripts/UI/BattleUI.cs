@@ -1,32 +1,48 @@
 using Assets.Scripts.UI;
 using NordeusRPG.DTOs;
 using NordeusRPG.Models;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BattleUI : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Character _hero;
-    private Character _enemy;
     public HealthBarSlider heroHealthbar;
     public HealthBarSlider enemyHealthbar;
+    public List<MoveUI> moves;
     void Start() 
     {
-        _hero = GameManager.Instance.Hero;
-        _enemy = GameManager.Instance.CurrentEnemy;
+        var hero = GameManager.Instance.Hero;
+        var enemy = GameManager.Instance.CurrentEnemy;
 
-        heroHealthbar.SetMaxHealth(_hero.Health.MaxHealth);
-        heroHealthbar.SetHealth(_hero.Health.CurrentHealth);
+        BattleManager.Instance.Init(hero, enemy);
 
-        enemyHealthbar.SetMaxHealth(_enemy.Health.MaxHealth);
-        enemyHealthbar.SetHealth(_enemy.Health.CurrentHealth);
+        heroHealthbar.SetMaxHealth(hero.Health.MaxHealth);
+        heroHealthbar.SetHealth(hero.Health.CurrentHealth);
+        enemyHealthbar.SetMaxHealth(enemy.Health.MaxHealth);
+        enemyHealthbar.SetHealth(enemy.Health.CurrentHealth);
+
+        SetupMoves(hero);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetupMoves(Character hero)
     {
-        
+        for (int i = 0; i < moves.Count; i++)
+        {
+            var moveUI = moves[i];
+            var moveData = hero.Moves[i];
+
+            moveUI.Init(() =>
+            {
+                BattleManager.Instance.PlayMove(moveUI.moveId);
+            }, moveData.Name, moveData.Id);
+        }
+    }
+
+    public void Refresh(BattleState state)
+    {
+        heroHealthbar.SetHealth(state.Hero.Health.CurrentHealth);
+        enemyHealthbar.SetHealth(state.Enemy.Health.CurrentHealth);
     }
 }

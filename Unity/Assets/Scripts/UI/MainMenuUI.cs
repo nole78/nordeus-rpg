@@ -6,13 +6,11 @@ namespace Assets.Scripts.UI
 {
     public class MainMenuUI : MonoBehaviour
     {
-        public ApiClient api;
-
         public void OnStartGameClicked()
         {
             Debug.Log("Klik!");
 
-            StartCoroutine(api.GetRunConfig(OnSucces, OnError));
+            StartCoroutine(ApiClient.Instance.GetRunConfig(OnSucces, OnError));
         }
         private void OnSucces(RunConfigResponse config)
         {

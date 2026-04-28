@@ -17,5 +17,10 @@ namespace Assets.Scripts.UI
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => onClick());
         }
+
+        public void SetInteractable(bool value)
+        {
+            button.interactable = value;
+        }
     }
 }

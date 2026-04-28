@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public RunConfigResponse Config { get; private set; }
     public Character Hero => Config.Hero;
     public Character CurrentEnemy { get; private set; }
+    public HashSet<string> DefeatedEnemies = new();
     private void Awake()
     {
         if(Instance == null)
@@ -32,4 +33,10 @@ public class GameManager : MonoBehaviour
     {
         Config = config;
     }
+
+    public bool IsEnemyDefeated(string enemyId)
+        => DefeatedEnemies.Contains(enemyId);
+
+    public void MarkEnemyDefeated(string enemyId)
+        => DefeatedEnemies.Add(enemyId);
 }

@@ -13,12 +13,14 @@ namespace Assets.Scripts.UI
     {
         public Button button;
         public TextMeshProUGUI text;
+        public string moveId;
 
-        public void Init(Action onClick,string name)
+        public void Init(Action onClick,string name,string id)
         {
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => onClick());
             text.text = name;
+            moveId = id;
         }
 
         public void SetInteractable(bool value)

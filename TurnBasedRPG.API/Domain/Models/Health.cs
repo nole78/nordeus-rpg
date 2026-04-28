@@ -5,9 +5,9 @@ namespace TurnBasedRPG.API.Domain.Models
     public class Health
     {
         [Required]
-        public int MaxHealth { get; private set; } = 0;
+        public int MaxHealth { get; set; } = 0;
         [Required]
-        public int CurrentHealth { get; private set; } = 0;
+        public int CurrentHealth { get; set; } = 0;
 
         public Health(int maxHealth)
         {

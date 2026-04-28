@@ -8,7 +8,7 @@ using System;
 
 public class ApiClient : MonoBehaviour
 {
-    public ApiClient Instance;
+    public static ApiClient Instance;
     private const string BASE_URL = "http://localhost:5192"; // change if needed
     private static readonly JsonSerializerSettings Settings = new()
     {

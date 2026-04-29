@@ -5,8 +5,8 @@ namespace NordeusRPG.Models
     [Serializable]
     public class Health
     {
-        public int MaxHealth { get; private set; } = 0;
-        public int CurrentHealth { get; private set; } = 0;
+        public int MaxHealth { get; set; } = 0;
+        public int CurrentHealth { get; set; } = 0;
 
         public Health(int maxHealth)
         {

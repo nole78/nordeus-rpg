@@ -44,5 +44,12 @@ public class BattleUI : MonoBehaviour
     {
         heroHealthbar.SetHealth(state.Hero.Health.CurrentHealth);
         enemyHealthbar.SetHealth(state.Enemy.Health.CurrentHealth);
+
+        if (state.Hero.Health.CurrentHealth <= 0 || state.Enemy.Health.CurrentHealth <= 0)
+        {
+            if(!GameManager.Instance.IsEnemyDefeated(state.Enemy.Id))
+                GameManager.Instance.MarkEnemyDefeated(state.Enemy.Id);
+            SceneManager.LoadScene("Map");
+        }
     }
 }

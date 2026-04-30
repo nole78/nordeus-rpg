@@ -15,27 +15,19 @@ namespace Assets.Scripts.UI
         public Button button;
         public TextMeshProUGUI text;
         public Image icon;
-        public MoveIconDatabase iconDb;
-        private string _moveId = string.Empty;
 
-        public void Init(Action onClick,string name,string id)
+        public void Init(Action onClick,string name,Sprite sprite)
         {
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => onClick());
             text.text = name;
-            _moveId = id;
 
-            icon.sprite = iconDb.GetSprite(id);
+            icon.sprite = sprite;
         }
 
         public void SetInteractable(bool value)
         {
             button.interactable = value;
-        }
-
-        public string GetId()
-        {
-            return _moveId;
         }
     }
 }

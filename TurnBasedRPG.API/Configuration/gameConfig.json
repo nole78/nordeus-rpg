@@ -73,231 +73,6 @@
   },
   "enemies": [
     {
-      "id": "witch",
-      "name": "Witch",
-      "health": {
-        "maxHealth": 100,
-        "currentHealth": 100
-      },
-      "baseStats": {
-        "attack": 3,
-        "defense": 5,
-        "magic": 20
-      },
-      "moves": [
-        {
-          "id": "shadow_bolt",
-          "name": "Shadow Bolt",
-          "description": "Launch a bolt of dark magic.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 20,
-              "scalingStat": "Magic"
-            }
-          ]
-        },
-        {
-          "id": "drain_life",
-          "name": "Drain Life",
-          "description": "Steal life from the enemy.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 5,
-              "scalingStat": "Magic"
-            },
-            {
-              "kind": "Heal",
-              "value": 5,
-              "scalingStat": "Magic"
-            }
-          ]
-        },
-        {
-          "id": "curse",
-          "name": "Curse",
-          "description": "Weaken the enemy's attack.",
-          "effects": [
-            {
-              "kind": "ApplyStatus",
-              "statusEffect": {
-                "value": 5,
-                "type": "DebuffAttack",
-                "duration": 2
-              }
-            }
-          ]
-        },
-        {
-          "id": "dark_pact",
-          "name": "Dark Pact",
-          "description": "Sacrifice health to gain magical power.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "target": "Self",
-              "value": 5
-            },
-            {
-              "kind": "ApplyStatus",
-              "target": "Self",
-              "statusEffect": {
-                "value": 5,
-                "type": "BuffMagic",
-                "duration": 2
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "giant_spider",
-      "name": "Giant Spider",
-      "health": {
-        "maxHealth": 150,
-        "currentHealth": 150
-      },
-      "baseStats": {
-        "attack": 15,
-        "defense": 10,
-        "magic": 0
-      },
-      "moves": [
-        {
-          "id": "bite",
-          "name": "Bite",
-          "description": "A venomous bite.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 10,
-              "scalingStat": "Attack"
-            }
-          ]
-        },
-        {
-          "id": "web_throw",
-          "name": "Web Throw",
-          "description": "Throw webs to slow and weaken the enemy.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 5,
-              "scalingStat": "Attack"
-            },
-            {
-              "kind": "ApplyStatus",
-              "statusEffect": {
-                "value": 5,
-                "type": "DebuffDefense",
-                "duration": 2
-              }
-            }
-          ]
-        },
-        {
-          "id": "pounce",
-          "name": "Pounce",
-          "description": "Leap at the enemy with full force.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 20,
-              "scalingStat": "Attack"
-            }
-          ]
-        },
-        {
-          "id": "skitter",
-          "name": "Skitter",
-          "description": "Move defensively to reduce incoming damage.",
-          "effects": [
-            {
-              "kind": "ApplyStatus",
-              "target": "Self",
-              "statusEffect": {
-                "value": 3,
-                "type": "BuffDefense",
-                "duration": 2
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "dragon",
-      "name": "Dragon",
-      "health": {
-        "maxHealth": 200,
-        "currentHealth": 200
-      },
-      "baseStats": {
-        "attack": 15,
-        "defense": 10,
-        "magic": 15
-      },
-      "moves": [
-        {
-          "id": "flame_breath",
-          "name": "Flame Breath",
-          "description": "Breathe fire on the enemy.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 20,
-              "scalingStat": "Magic"
-            }
-          ]
-        },
-        {
-          "id": "claw_swipe",
-          "name": "Claw Swipe",
-          "description": "Swipe with sharp claws.",
-          "effects": [
-            {
-              "kind": "Damage",
-              "value": 10,
-              "scalingStat": "Attack"
-            }
-          ]
-        },
-        {
-          "id": "intimidate",
-          "name": "Intimidate",
-          "description": "Reduce enemy attack with fear.",
-          "effects": [
-            {
-              "kind": "ApplyStatus",
-              "statusEffect": {
-                "value": 5,
-                "type": "DebuffAttack",
-                "duration": 2
-              }
-            }
-          ]
-        },
-        {
-          "id": "dragon_scales",
-          "name": "Dragon Scales",
-          "description": "Harden scales to increase defense.",
-          "effects": [
-            {
-              "kind": "ApplyStatus",
-              "target": "Self",
-              "statusEffect": {
-                "value": 5,
-                "type": "BuffDefense",
-                "duration": 2
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "goblin_warrior",
       "name": "Goblin Warrior",
       "health": {
@@ -450,6 +225,231 @@
           ]
         }
       ]
-    }
+      },
+      {
+        "id": "witch",
+        "name": "Witch",
+        "health": {
+          "maxHealth": 100,
+          "currentHealth": 100
+        },
+        "baseStats": {
+          "attack": 3,
+          "defense": 5,
+          "magic": 20
+        },
+        "moves": [
+          {
+            "id": "shadow_bolt",
+            "name": "Shadow Bolt",
+            "description": "Launch a bolt of dark magic.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 20,
+                "scalingStat": "Magic"
+              }
+            ]
+          },
+          {
+            "id": "drain_life",
+            "name": "Drain Life",
+            "description": "Steal life from the enemy.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 5,
+                "scalingStat": "Magic"
+              },
+              {
+                "kind": "Heal",
+                "value": 5,
+                "scalingStat": "Magic"
+              }
+            ]
+          },
+          {
+            "id": "curse",
+            "name": "Curse",
+            "description": "Weaken the enemy's attack.",
+            "effects": [
+              {
+                "kind": "ApplyStatus",
+                "statusEffect": {
+                  "value": 5,
+                  "type": "DebuffAttack",
+                  "duration": 2
+                }
+              }
+            ]
+          },
+          {
+            "id": "dark_pact",
+            "name": "Dark Pact",
+            "description": "Sacrifice health to gain magical power.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "target": "Self",
+                "value": 5
+              },
+              {
+                "kind": "ApplyStatus",
+                "target": "Self",
+                "statusEffect": {
+                  "value": 5,
+                  "type": "BuffMagic",
+                  "duration": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "giant_spider",
+        "name": "Giant Spider",
+        "health": {
+          "maxHealth": 150,
+          "currentHealth": 150
+        },
+        "baseStats": {
+          "attack": 15,
+          "defense": 10,
+          "magic": 0
+        },
+        "moves": [
+          {
+            "id": "bite",
+            "name": "Bite",
+            "description": "A venomous bite.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 10,
+                "scalingStat": "Attack"
+              }
+            ]
+          },
+          {
+            "id": "web_throw",
+            "name": "Web Throw",
+            "description": "Throw webs to slow and weaken the enemy.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 5,
+                "scalingStat": "Attack"
+              },
+              {
+                "kind": "ApplyStatus",
+                "statusEffect": {
+                  "value": 5,
+                  "type": "DebuffDefense",
+                  "duration": 2
+                }
+              }
+            ]
+          },
+          {
+            "id": "pounce",
+            "name": "Pounce",
+            "description": "Leap at the enemy with full force.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 20,
+                "scalingStat": "Attack"
+              }
+            ]
+          },
+          {
+            "id": "skitter",
+            "name": "Skitter",
+            "description": "Move defensively to reduce incoming damage.",
+            "effects": [
+              {
+                "kind": "ApplyStatus",
+                "target": "Self",
+                "statusEffect": {
+                  "value": 3,
+                  "type": "BuffDefense",
+                  "duration": 2
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dragon",
+        "name": "Dragon",
+        "health": {
+          "maxHealth": 200,
+          "currentHealth": 200
+        },
+        "baseStats": {
+          "attack": 15,
+          "defense": 10,
+          "magic": 15
+        },
+        "moves": [
+          {
+            "id": "flame_breath",
+            "name": "Flame Breath",
+            "description": "Breathe fire on the enemy.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 20,
+                "scalingStat": "Magic"
+              }
+            ]
+          },
+          {
+            "id": "claw_swipe",
+            "name": "Claw Swipe",
+            "description": "Swipe with sharp claws.",
+            "effects": [
+              {
+                "kind": "Damage",
+                "value": 10,
+                "scalingStat": "Attack"
+              }
+            ]
+          },
+          {
+            "id": "intimidate",
+            "name": "Intimidate",
+            "description": "Reduce enemy attack with fear.",
+            "effects": [
+              {
+                "kind": "ApplyStatus",
+                "statusEffect": {
+                  "value": 5,
+                  "type": "DebuffAttack",
+                  "duration": 2
+                }
+              }
+            ]
+          },
+          {
+            "id": "dragon_scales",
+            "name": "Dragon Scales",
+            "description": "Harden scales to increase defense.",
+            "effects": [
+              {
+                "kind": "ApplyStatus",
+                "target": "Self",
+                "statusEffect": {
+                  "value": 5,
+                  "type": "BuffDefense",
+                  "duration": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
   ]
 }

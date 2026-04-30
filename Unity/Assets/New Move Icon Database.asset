@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170034e63c603554abf2bca55976023d, type: 3}
+  m_Name: New Move Icon Database
+  m_EditorClassIdentifier: 
+  entries:
+  - moveId: slash
+    sprite: {fileID: 50410372, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: shield_up
+    sprite: {fileID: -223356548, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: battle_cry
+    sprite: {fileID: 345776120, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: second_wind
+    sprite: {fileID: -899615020, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: shadow_bolt
+    sprite: {fileID: -727270218, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: drain_life
+    sprite: {fileID: -1997046163, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: curse
+    sprite: {fileID: 1489088072, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: dark_pact
+    sprite: {fileID: -620879822, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: bite
+    sprite: {fileID: 1326089637, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: web_throw
+    sprite: {fileID: 770291005, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: pounce
+    sprite: {fileID: -157518068, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: skitter
+    sprite: {fileID: -1860404356, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: flame_breath
+    sprite: {fileID: -110687457, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: claw_swipe
+    sprite: {fileID: -1935125179, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: intimidate
+    sprite: {fileID: 430083426, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: dragon_scales
+    sprite: {fileID: 56176, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: rusty_blade
+    sprite: {fileID: -1824271862, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: dirty_kick
+    sprite: {fileID: -71081710, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: frenzy
+    sprite: {fileID: 340707668, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: headbutt
+    sprite: {fileID: -769754815, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: firebolt
+    sprite: {fileID: 1677913794, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: arcane_surge
+    sprite: {fileID: -287600358, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: mana_drain
+    sprite: {fileID: 1927762561, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}
+  - moveId: hex_shield
+    sprite: {fileID: 1826768914, guid: 5761f9f4f2d8b2e49980b7d5025971b2, type: 3}

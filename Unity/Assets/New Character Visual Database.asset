@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45c86d16df4f3c41a583bac51f4a914, type: 3}
+  m_Name: New Character Visual Database
+  m_EditorClassIdentifier: 
+  characters:
+  - Id: hero
+    Idle: {fileID: 1965581497, guid: 6d6592a85b9f4cc44be3e707c6bf73c9, type: 3}
+    Attack: {fileID: -1778563993, guid: 6d6592a85b9f4cc44be3e707c6bf73c9, type: 3}
+    Hit: {fileID: 1965581497, guid: 6d6592a85b9f4cc44be3e707c6bf73c9, type: 3}
+  - Id: witch
+    Idle: {fileID: 58226888, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Attack: {fileID: 58226888, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Hit: {fileID: 58226888, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+  - Id: dragon
+    Idle: {fileID: 806290394, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Attack: {fileID: 806290394, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Hit: {fileID: 806290394, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+  - Id: goblin_mage
+    Idle: {fileID: 447356957, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Attack: {fileID: 447356957, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Hit: {fileID: 447356957, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+  - Id: goblin_warrior
+    Idle: {fileID: -558203027, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Attack: {fileID: -558203027, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Hit: {fileID: -558203027, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+  - Id: giant_spider
+    Idle: {fileID: -48367075, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Attack: {fileID: -48367075, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}
+    Hit: {fileID: -48367075, guid: 4d0a6c401479e104eac348ba2e3f82fc, type: 3}

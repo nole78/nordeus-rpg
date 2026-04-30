@@ -16,14 +16,14 @@ namespace Assets.Scripts.UI
         public TextMeshProUGUI text;
         public Image icon;
         public MoveIconDatabase iconDb;
-        public string moveId;
+        private string _moveId = string.Empty;
 
         public void Init(Action onClick,string name,string id)
         {
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => onClick());
             text.text = name;
-            moveId = id;
+            _moveId = id;
 
             icon.sprite = iconDb.GetSprite(id);
         }
@@ -31,6 +31,11 @@ namespace Assets.Scripts.UI
         public void SetInteractable(bool value)
         {
             button.interactable = value;
+        }
+
+        public string GetId()
+        {
+            return _moveId;
         }
     }
 }

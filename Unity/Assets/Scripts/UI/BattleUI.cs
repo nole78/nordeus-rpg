@@ -35,7 +35,7 @@ public class BattleUI : MonoBehaviour
 
             moveUI.Init(() =>
             {
-                BattleManager.Instance.PlayMove(moveUI.moveId);
+                BattleManager.Instance.PlayMove(moveUI.GetId());
             }, moveData.Name, moveData.Id);
         }
     }

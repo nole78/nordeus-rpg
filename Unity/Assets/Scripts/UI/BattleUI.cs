@@ -1,3 +1,4 @@
+using Assets.Scripts.Database;
 using Assets.Scripts.UI;
 using NordeusRPG.DTOs;
 using NordeusRPG.Models;
@@ -10,6 +11,7 @@ public class BattleUI : MonoBehaviour
     // Start is called before the first frame update
     public HealthBarSlider heroHealthbar;
     public HealthBarSlider enemyHealthbar;
+    public MoveIconDatabase moveDb;
     public List<MoveUI> moves;
     void Start() 
     {
@@ -32,11 +34,12 @@ public class BattleUI : MonoBehaviour
         {
             var moveUI = moves[i];
             var moveData = hero.Moves[i];
+            var moveSprite = moveDb.GetSprite(moveData.Id);
 
             moveUI.Init(() =>
             {
-                BattleManager.Instance.PlayMove(moveUI.GetId());
-            }, moveData.Name, moveData.Id);
+                BattleManager.Instance.PlayMove(moveData.Id);
+            }, moveData.Name,moveSprite);
         }
     }
 

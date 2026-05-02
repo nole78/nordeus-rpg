@@ -11,12 +11,14 @@ public class MapUI : MonoBehaviour
     public List<MapNodeUI> nodes;
     public List<MoveUI> selectedMoves;
     public MoveIconDatabase moveDb;
+    public MoveManagerUI moveManager;
 
     private List<Character> _enemies;
     void Start()
     {
         var config = GameManager.Instance.Config;
         _enemies = config.Enemies;
+        moveManager.Init();
 
         for(int i = 0; i < _enemies.Count; i++)
         {
@@ -38,8 +40,11 @@ public class MapUI : MonoBehaviour
             var move = moves[i];
             var moveSprite = moveDb.GetSprite(move.Id);
             var moveUI = selectedMoves[i];
+            var slot = moveManager.activeMoveSlots[i];
             moveUI.Init(() =>
             {
+                if(moveManager.isActiveAndEnabled)
+                    moveManager.OnActiveMoveClicked(slot);
             },move.Name,moveSprite);
         }
     }
@@ -53,11 +58,5 @@ public class MapUI : MonoBehaviour
         var prevEnemy = _enemies[index - 1];
 
         return GameManager.Instance.IsEnemyDefeated(prevEnemy.Id);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

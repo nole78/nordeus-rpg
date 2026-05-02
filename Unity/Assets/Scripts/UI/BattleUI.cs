@@ -159,9 +159,10 @@ public class BattleUI : MonoBehaviour
         if (state.Hero.Health.IsDead() || state.Enemy.Health.IsDead())
         {
             bool victory = false;
-            if (state.Enemy.Health.IsDead() && !GameManager.Instance.IsEnemyDefeated(state.Enemy.Id))
+            if (state.Enemy.Health.IsDead())
             {
-                GameManager.Instance.MarkEnemyDefeated(state.Enemy.Id);
+                if(!GameManager.Instance.IsEnemyDefeated(state.Enemy.Id))
+                    GameManager.Instance.MarkEnemyDefeated(state.Enemy.Id);
                 victory = true;
             }
 
@@ -192,16 +193,17 @@ public class BattleUI : MonoBehaviour
         {
             var enemyMoves = GameManager.Instance.CurrentEnemy.Moves;
             var playerMoves = GameManager.Instance.Player.Moves;
+            var movePool = new List<Move>();
             foreach(var move in enemyMoves)
             {
-                if (playerMoves.Contains(move))
-                    enemyMoves.Remove(move);
+                if (!playerMoves.Contains(move))
+                    movePool.Add(move);
             }
 
-            if(enemyMoves.Count() != 0)
+            if(movePool.Count() != 0)
             {
-                int idx = Random.Range(0, enemyMoves.Count());
-                learntMove = enemyMoves[idx];
+                int idx = Random.Range(0, movePool.Count());
+                learntMove = movePool[idx];
                 GameManager.Instance.LearnMove(learntMove);
             }
            

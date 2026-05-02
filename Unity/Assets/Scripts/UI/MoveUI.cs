@@ -15,6 +15,7 @@ namespace Assets.Scripts.UI
         public Button button;
         public TextMeshProUGUI text;
         public Image icon;
+        public Image selectionHighlight;
 
         public void Init(Action onClick,string name,Sprite sprite)
         {
@@ -28,6 +29,10 @@ namespace Assets.Scripts.UI
         public void SetInteractable(bool value)
         {
             button.interactable = value;
+        }
+        public void SetSelected(bool value)
+        {
+            selectionHighlight.gameObject.SetActive(value);
         }
     }
 }

@@ -34,7 +34,9 @@ public class GameManager : MonoBehaviour
     {
         Config = config;
         Player.Hero = config.Hero;
-        Player.Moves = Player.Hero.Moves;
+        Player.Moves = new List<Move>();
+        foreach (var move in config.Hero.Moves)
+            Player.Moves.Add(move);
     }
 
     public void SetUsername(string username)

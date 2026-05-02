@@ -1,4 +1,5 @@
 ﻿using NordeusRPG.Enums;
+using NordeusRPG.Models;
 
 namespace Assets.Scripts.Models
 {
@@ -10,5 +11,6 @@ namespace Assets.Scripts.Models
         public int Value { get; set; } = 0; 
         public bool IsSelf { get; set; } = false;
         public int ActionIndex { get; set; } = 0;
+        public StatusEffect AppliedEffect { get; set; }
     }
 }

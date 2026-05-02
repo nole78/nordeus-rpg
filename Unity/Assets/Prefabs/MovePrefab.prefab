@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 941667578229627062}
   text: {fileID: 4822809524814507208}
+  icon: {fileID: 1797404755297619536}
 --- !u!1 &4565593733689218929
 GameObject:
   m_ObjectHideFlags: 0

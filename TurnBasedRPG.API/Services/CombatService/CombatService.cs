@@ -59,6 +59,7 @@ namespace TurnBasedRPG.API.Services.CombatService
             {
                 var target = effect.Target == TargetType.Self ? attacker : defender;
                 int amount = 0;
+                StatusEffect? appliedEffect = null;
                 switch (effect.Kind)
                 {
                     case MoveKind.Damage:
@@ -72,7 +73,7 @@ namespace TurnBasedRPG.API.Services.CombatService
                         break;
 
                     case MoveKind.ApplyStatus:
-                        _effectService.ApplyEffect(target, effect);
+                        appliedEffect = _effectService.ApplyEffect(target, effect);
                         break;
                 }
                 events.Add(new CombatEvent
@@ -82,7 +83,8 @@ namespace TurnBasedRPG.API.Services.CombatService
                     IsSelf = effect.Target == TargetType.Self ? true : false,
                     Kind = effect.Kind,
                     Value = amount,
-                    ActionIndex = idx
+                    ActionIndex = idx,
+                    AppliedEffect = appliedEffect
                 });
             }
         }

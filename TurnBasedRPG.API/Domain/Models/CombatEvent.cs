@@ -13,5 +13,6 @@ namespace TurnBasedRPG.API.Domain.Models
 
         public bool IsSelf { get; set; } = false;
         public int ActionIndex { get; set; } = 0;
+        public StatusEffect? AppliedEffect { get; set; }
     }
 }

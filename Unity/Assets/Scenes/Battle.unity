@@ -398,6 +398,10 @@ PrefabInstance:
       propertyPath: image
       value: 
       objectReference: {fileID: 194658011}
+    - target: {fileID: 8009447894898819187, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
+      propertyPath: effectDb
+      value: 
+      objectReference: {fileID: 11400000, guid: a0e2a54cbb4ed444db8ca887a51e3b25, type: 2}
     - target: {fileID: 8224994246790492515, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
       propertyPath: m_Name
       value: HealthSlider
@@ -487,6 +491,7 @@ MonoBehaviour:
   summary: {fileID: 680868922}
   moveDb: {fileID: 11400000, guid: f1f2ad3124d085e4e9acc5ccf97defa5, type: 2}
   characterDb: {fileID: 11400000, guid: 3ebdd195a93ecb549bb924c6aa3cdde7, type: 2}
+  effectDb: {fileID: 11400000, guid: a0e2a54cbb4ed444db8ca887a51e3b25, type: 2}
   moves:
   - {fileID: 24959054}
   - {fileID: 188650024}

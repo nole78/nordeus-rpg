@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NordeusRPG.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Assets.Scripts.UI
             button.SetActive(false);
         }
 
-        public void Show(bool victory)
+        public void Show(bool victory,Move learntMove)
         {
             gameObject.SetActive(true);
 
@@ -37,7 +38,19 @@ namespace Assets.Scripts.UI
 
             StopAllCoroutines();
             StartCoroutine(AnimateOpen());
-            StartCoroutine(TypeText("You defeated the enemy!"));
+            if (victory)
+            {
+                if(learntMove != null)
+                    StartCoroutine(TypeText("You defeated the enemy!\n" +
+                    "Learnt move: " + learntMove.Name + "!"));
+                else
+                    StartCoroutine(TypeText("You defeated the enemy!\n" +
+                    "You already learned all enemy moves!"));
+            }
+            else
+            {
+                StartCoroutine(TypeText("You were defeated by the enemy!"));
+            }
         }
 
         IEnumerator AnimateOpen()

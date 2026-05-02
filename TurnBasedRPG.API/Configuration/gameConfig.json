@@ -33,6 +33,7 @@
             "kind": "ApplyStatus",
             "target": "Self",
             "statusEffect": {
+              "id" : "shield_up",
               "value": 5,
               "type": "BuffDefense",
               "duration": 2
@@ -49,6 +50,7 @@
             "kind": "ApplyStatus",
             "target": "Self",
             "statusEffect": {
+              "id": "battle_cry",
               "value": 5,
               "type": "BuffAttack",
               "duration": 2
@@ -110,6 +112,7 @@
             {
               "kind": "ApplyStatus",
               "statusEffect": {
+                "id": "dirty_kick",
                 "value": 5,
                 "type": "DebuffDefense",
                 "duration": 2
@@ -126,6 +129,7 @@
               "kind": "ApplyStatus",
               "target": "Self",
               "statusEffect": {
+                "id": "frenzy",
                 "value": 3,
                 "type": "BuffAttack",
                 "duration": 2
@@ -181,6 +185,7 @@
               "kind": "ApplyStatus",
               "target": "Self",
               "statusEffect": {
+                "id": "arcane_surge",
                 "value": 3,
                 "type": "BuffMagic",
                 "duration": 2
@@ -201,6 +206,7 @@
             {
               "kind": "ApplyStatus",
               "statusEffect": {
+                "id": "mana_drain",
                 "value": 4,
                 "type": "DebuffMagic",
                 "duration": 2
@@ -217,6 +223,7 @@
               "kind": "ApplyStatus",
               "target": "Self",
               "statusEffect": {
+                "id": "hex_shield",
                 "value": 3,
                 "type": "BuffDefense",
                 "duration": 2
@@ -263,6 +270,7 @@
               },
               {
                 "kind": "Heal",
+                "target": "Self",
                 "value": 5,
                 "scalingStat": "Magic"
               }
@@ -276,6 +284,7 @@
               {
                 "kind": "ApplyStatus",
                 "statusEffect": {
+                  "id": "curse",
                   "value": 5,
                   "type": "DebuffAttack",
                   "duration": 2
@@ -297,6 +306,7 @@
                 "kind": "ApplyStatus",
                 "target": "Self",
                 "statusEffect": {
+                  "id": "dark_pact",
                   "value": 5,
                   "type": "BuffMagic",
                   "duration": 2
@@ -344,6 +354,7 @@
               {
                 "kind": "ApplyStatus",
                 "statusEffect": {
+                  "id": "web_throw",
                   "value": 5,
                   "type": "DebuffDefense",
                   "duration": 2
@@ -372,6 +383,7 @@
                 "kind": "ApplyStatus",
                 "target": "Self",
                 "statusEffect": {
+                  "id": "skitter",
                   "value": 3,
                   "type": "BuffDefense",
                   "duration": 2

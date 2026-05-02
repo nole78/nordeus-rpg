@@ -53,10 +53,11 @@ namespace TurnBasedRPG.API.Services.EffectService
             {
                 return new StatusEffect
                 {
+                    Id = def.Id,
                     Type = def.Type,
                     Value = def.Value,
                     RemainingTurns = def.Duration,
-                    SkipFirstTick = IsOffensiveEffect(def.Type)
+                    SkipFirstTick = true
                 };
             }
             catch

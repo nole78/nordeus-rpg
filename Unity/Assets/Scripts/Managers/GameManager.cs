@@ -1,3 +1,4 @@
+using Assets.Scripts.Models;
 using NordeusRPG.DTOs;
 using NordeusRPG.Models;
 using System.Collections;
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public RunConfigResponse Config { get; private set; }
-    public Character Hero => Config.Hero;
+    public Player Player = new();
     public Character CurrentEnemy { get; private set; }
     public HashSet<string> DefeatedEnemies = new();
     private void Awake()
@@ -32,6 +33,17 @@ public class GameManager : MonoBehaviour
     public void SetConfig(RunConfigResponse config)
     {
         Config = config;
+        Player.Hero = config.Hero;
+    }
+
+    public void SetUsername(string username)
+    {
+        Player.Username = username;
+    }
+
+    public void LearnMove(Move move)
+    {
+        Player.Moves.Add(move);
     }
 
     public bool IsEnemyDefeated(string enemyId)

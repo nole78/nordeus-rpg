@@ -1,5 +1,13 @@
 # 🎮 Turn-Based RPG — Full Stack Challenge (Nordeus 2026)
 
+<p align="center">
+  <b>Full-stack turn-based RPG with server-authoritative combat and event-driven battle replay</b>
+</p>
+
+<p align="center">
+  <a href="https://youtu.be/XRCgYCd0nDU">▶️ Watch Full Playthrough (3 min)</a>
+</p>
+
 ## 📌 Overview
 
 A full-stack turn-based RPG prototype featuring a server-driven combat system, run-based progression, and modular game architecture built in Unity.
@@ -180,8 +188,9 @@ Client responsibility:
 
 ## 🎥 Full Playthrough Demo
 
-📌 Full gameplay recording:  
-https://youtu.be/XRCgYCd0nDU
+<p align="center">
+  <a href="https://youtu.be/XRCgYCd0nDU">▶️ Watch Full Playthrough</a>
+</p>
 
 Includes:
 - Start new run
@@ -195,5 +204,5 @@ Includes:
 
 ## 🧑‍💻 Author
 
-**Name:** David Novaković  
+**David Novaković**  
 **LinkedIn:** www.linkedin.com/in/novakovic-david

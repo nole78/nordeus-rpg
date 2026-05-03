@@ -52,7 +52,7 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 - Floating combat text (damage/heal feedback)
 
 📽️ **Demo: Full Battle Showcase**  
-<!-- Insert video/GIF link here -->
+![Combat Demo](README-assets/CombatDemo.gif)
 
 ---
 

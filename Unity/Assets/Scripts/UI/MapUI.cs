@@ -1,4 +1,6 @@
 using Assets.Scripts.Database;
+using Assets.Scripts.Models;
+using Assets.Scripts.Services;
 using Assets.Scripts.UI;
 using NordeusRPG.Models;
 using System.Collections;
@@ -12,6 +14,7 @@ public class MapUI : MonoBehaviour
     public List<MoveUI> selectedMoves;
     public MoveIconDatabase moveDb;
     public MoveManagerUI moveManager;
+    public ExitScreenUI exitScene;
 
     private List<Character> _enemies;
     void Start()
@@ -58,11 +61,5 @@ public class MapUI : MonoBehaviour
         var prevEnemy = _enemies[index - 1];
 
         return GameManager.Instance.IsEnemyDefeated(prevEnemy.Id);
-    }
-
-    public void onMainMenuClicked()
-    {
-        Destroy(GameManager.Instance);
-        SceneManager.LoadScene("MainMenu");
     }
 }

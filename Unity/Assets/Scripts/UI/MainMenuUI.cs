@@ -1,4 +1,6 @@
-﻿using NordeusRPG.DTOs;
+﻿using Assets.Scripts.Models;
+using Assets.Scripts.Services;
+using NordeusRPG.DTOs;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,15 +10,17 @@ namespace Assets.Scripts.UI
     public class MainMenuUI : MonoBehaviour
     {
         public Button loadButton;
+        private SaveData _data;
         void Awake()
         {
-            loadButton.interactable = false;
-            // TODO: chechk if there is saved run
+            _data = SaveService.Load();
+            if (_data != null)
+                loadButton.interactable = true;
+            else
+                loadButton.interactable = false;
         }
         public void OnStartGameClicked()
         {
-            Debug.Log("Klik!");
-
             StartCoroutine(ApiClient.Instance.GetRunConfig(OnSucces, OnError));
         }
         private void OnSucces(RunConfigResponse config)
@@ -37,7 +41,14 @@ namespace Assets.Scripts.UI
 
         public void OnLoadGameCliecked()
         {
-            // TODO: Add Load Game logic here
+            GameManager.Instance.SetConfig(_data.config);
+            GameManager.Instance.Player.Moves = _data.player.moves;
+            GameManager.Instance.Player.Hero.Moves = _data.player.selectedMoves;
+            GameManager.Instance.Player.Level = _data.player.level;
+            GameManager.Instance.Player.Experience = _data.player.experience;
+            foreach (var enemy in _data.defeatedEnemiesId)
+                GameManager.Instance.MarkEnemyDefeated(enemy);
+            SceneManager.LoadScene("Map");
         }
 
     }

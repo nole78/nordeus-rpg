@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public RunConfigResponse Config { get; private set; }
-    public Player Player = new();
+    public Player Player;
     public Character CurrentEnemy { get; private set; }
     public HashSet<string> DefeatedEnemies = new();
+    public int experienceGain = 0;
     private void Awake()
     {
         if(Instance == null)
@@ -33,10 +34,8 @@ public class GameManager : MonoBehaviour
     public void SetConfig(RunConfigResponse config)
     {
         Config = config;
-        Player.Hero = config.Hero;
-        Player.Moves = new List<Move>();
-        foreach (var move in config.Hero.Moves)
-            Player.Moves.Add(move);
+        Player = new(config.Hero, config.progressionConfig);
+        experienceGain = 80;
     }
 
     public void SetUsername(string username)

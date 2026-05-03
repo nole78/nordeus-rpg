@@ -24,8 +24,8 @@ namespace Assets.Scripts.Services
                 config = GameManager.Instance.Config,
                 player = new PlayerData
                 {
-                    level = GameManager.Instance.Player.Level,
-                    experience = GameManager.Instance.Player.Experience,
+                    level = GameManager.Instance.Player.LevelSystem.Level,
+                    experience = GameManager.Instance.Player.LevelSystem.Experience,
                     moves = GameManager.Instance.Player.Moves,
                     selectedMoves = GameManager.Instance.Player.Hero.Moves
                 },

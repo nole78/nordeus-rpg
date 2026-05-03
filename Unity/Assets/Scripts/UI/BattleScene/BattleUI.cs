@@ -1,5 +1,6 @@
 using Assets.Scripts.Database;
 using Assets.Scripts.Models;
+using Assets.Scripts.Services;
 using Assets.Scripts.UI;
 using NordeusRPG.Enums;
 using NordeusRPG.Models;
@@ -197,6 +198,8 @@ public class BattleUI : MonoBehaviour
     void HandleBattleOver(bool victory)
     {
         Move learntMove = null;
+        bool lvlUp = false;
+        int experienceGained = 0;
         if(victory)
         {
             var enemyMoves = GameManager.Instance.CurrentEnemy.Moves;
@@ -214,8 +217,9 @@ public class BattleUI : MonoBehaviour
                 learntMove = movePool[idx];
                 GameManager.Instance.LearnMove(learntMove);
             }
-           
+            experienceGained = GameManager.Instance.experienceGain;
+            lvlUp = GameManager.Instance.Player.LevelSystem.AddExperience(experienceGained);
         }
-        summary.Show(victory,learntMove);
+        summary.Show(victory,learntMove,experienceGained,lvlUp);
     }
 }

@@ -10,9 +10,16 @@ namespace Assets.Scripts.Models
     public class Player
     {
         public string Username { get; set; } = string.Empty;
-        public Character Hero { get; set; }
-        public int Level { get; set; } = 1;
-        public int Experience { get; set; } = 0;
+        public Character Hero { get; private set; }
+        public LevelSystem LevelSystem { get; private set; }
         public List<Move> Moves { get; set; } = new List<Move>();
+
+        public Player(Character character, ProgressionConfig config)
+        {
+            Hero = character;
+            foreach (var move in character.Moves)
+                Moves.Add(move);
+            LevelSystem = new LevelSystem(config, this);
+        }
     }
 }

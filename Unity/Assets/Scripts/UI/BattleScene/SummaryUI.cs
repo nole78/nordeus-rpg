@@ -1,4 +1,5 @@
-﻿using NordeusRPG.Models;
+﻿using Assets.Scripts.Services;
+using NordeusRPG.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,28 +30,39 @@ namespace Assets.Scripts.UI
             button.SetActive(false);
         }
 
-        public void Show(bool victory,Move learntMove)
+        public void Show(bool victory,Move learntMove,int experienceGained,bool lvlUp)
         {
             gameObject.SetActive(true);
 
             title.text = victory ? "VICTORY" : "DEFEAT";
             title.color = victory ? Color.green : Color.red;
 
+            string messageText = string.Empty;
+
             StopAllCoroutines();
             StartCoroutine(AnimateOpen());
             if (victory)
             {
-                if(learntMove != null)
-                    StartCoroutine(TypeText("You defeated the enemy!\n" +
-                    "Learnt move: " + learntMove.Name + "!"));
+                messageText += "You defeted the enemy!";
+                if (learntMove != null)
+                    messageText += "\nLearnt move: " + learntMove.Name + "!";
                 else
-                    StartCoroutine(TypeText("You defeated the enemy!\n" +
-                    "You already learned all enemy moves!"));
-            }
+                    messageText += "\nYou already learned all enemy moves!";
+            } 
             else
             {
-                StartCoroutine(TypeText("You were defeated by the enemy!"));
+                messageText += "You were defeated by the enemy!";
             }
+            messageText += $"\nExperience gained: {experienceGained}exp";
+            if (lvlUp)
+            {
+                var stats = GameManager.Instance.Player.Hero.BaseStats;
+                var health = GameManager.Instance.Player.Hero.Health;
+                messageText += $"\nLeveled Up!\nNew Stats:\n";
+                messageText += $"\tMax health: {health.MaxHealth}\n\tAttack: {stats.Attack}\n\tMagic: {stats.Magic}\n\tDeffence: {stats.Defense}";
+            }
+
+            StartCoroutine(TypeText(messageText));
         }
 
         IEnumerator AnimateOpen()

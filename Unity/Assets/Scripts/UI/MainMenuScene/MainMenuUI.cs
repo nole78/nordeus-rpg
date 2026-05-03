@@ -44,8 +44,8 @@ namespace Assets.Scripts.UI
             GameManager.Instance.SetConfig(_data.config);
             GameManager.Instance.Player.Moves = _data.player.moves;
             GameManager.Instance.Player.Hero.Moves = _data.player.selectedMoves;
-            GameManager.Instance.Player.Level = _data.player.level;
-            GameManager.Instance.Player.Experience = _data.player.experience;
+            GameManager.Instance.Player.LevelSystem.Level = _data.player.level;
+            GameManager.Instance.Player.LevelSystem.Experience= _data.player.experience;
             foreach (var enemy in _data.defeatedEnemiesId)
                 GameManager.Instance.MarkEnemyDefeated(enemy);
             SceneManager.LoadScene("Map");

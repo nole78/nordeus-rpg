@@ -11,7 +11,6 @@ namespace Assets.Scripts.Models
         public MoveKind Kind { get; set; } = MoveKind.Damage;
         public int Value { get; set; } = 0; 
         public bool IsSelf { get; set; } = false;
-        public int ActionIndex { get; set; } = 0;
         public StatusEffect AppliedEffect { get; set; }
     }
 }

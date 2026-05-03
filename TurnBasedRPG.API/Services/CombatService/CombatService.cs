@@ -24,7 +24,6 @@ namespace TurnBasedRPG.API.Services.CombatService
             var events = new List<CombatEvent>();
             var hero = state.Hero;
             var enemy = state.Enemy;
-            int actionIdx = 0;
 
             // Player move
             var move = hero.Moves.FirstOrDefault(m => m.Id == request.PlayerMove);
@@ -32,14 +31,14 @@ namespace TurnBasedRPG.API.Services.CombatService
             {
                 return Result<NextMoveResponse>.Failure("Invalid hero move", ErrorType.Validation);
             }
-            PerformMove(hero, enemy, move, events, actionIdx++);
+            PerformMove(hero, enemy, move, events);
 
 
             // Enemy move
             if (!enemy.Health.IsDead())
             {
                 var enemyMove = enemy.Moves[_random.Next(enemy.Moves.Count)];
-                PerformMove(enemy, hero, enemyMove, events, actionIdx++);
+                PerformMove(enemy, hero, enemyMove, events);
             }
 
             _effectService.TickEffects(hero);
@@ -52,7 +51,7 @@ namespace TurnBasedRPG.API.Services.CombatService
             });
         }
 
-        private void PerformMove(Character attacker, Character defender, Move move, List<CombatEvent> events, int idx)
+        private void PerformMove(Character attacker, Character defender, Move move, List<CombatEvent> events)
         {
             var (attack, magic, defense) = _statService.CalculateStats(attacker, defender);
             foreach (var effect in move.Effects)
@@ -84,7 +83,6 @@ namespace TurnBasedRPG.API.Services.CombatService
                     IsSelf = effect.Target == TargetType.Self ? true : false,
                     Kind = effect.Kind,
                     Value = amount,
-                    ActionIndex = idx,
                     AppliedEffect = appliedEffect
                 });
             }

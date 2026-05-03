@@ -109,12 +109,12 @@ public class BattleUI : MonoBehaviour
                             if (e.TargetId == state.Hero.Id)
                             {
                                 tempHeroHp -= e.Value;
-                                heroUI.TakeDamage(tempHeroHp);
+                                heroUI.TakeDamage(tempHeroHp,e.Value);
                             }
                             else
                             {
                                 tempEnemyHp -= e.Value;
-                                enemyUI.TakeDamage(tempEnemyHp);
+                                enemyUI.TakeDamage(tempEnemyHp,e.Value);
                             }
                         }
                     ; break;
@@ -123,12 +123,12 @@ public class BattleUI : MonoBehaviour
                             if (e.TargetId == state.Hero.Id)
                             {
                                 tempHeroHp += e.Value;
-                                heroUI.TakeDamage(tempHeroHp);
+                                heroUI.Heal(tempHeroHp,e.Value);
                             }
                             else
                             {
                                 tempEnemyHp += e.Value;
-                                enemyUI.TakeDamage(tempEnemyHp);
+                                enemyUI.Heal(tempEnemyHp,e.Value);
                             }
                         }
                         ; break;

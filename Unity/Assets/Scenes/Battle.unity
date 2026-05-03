@@ -383,6 +383,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7251845033053811258, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8009447894898819187, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
       propertyPath: image
       value: 
@@ -391,6 +395,14 @@ PrefabInstance:
       propertyPath: effectDb
       value: 
       objectReference: {fileID: 11400000, guid: a0e2a54cbb4ed444db8ca887a51e3b25, type: 2}
+    - target: {fileID: 8106608815962190550, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -102
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106608815962190550, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8224994246790492515, guid: 43b388a15be6eaa4987e4af143227641, type: 3}
       propertyPath: m_Name
       value: HealthSlider

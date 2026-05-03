@@ -11,6 +11,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Database;
+using Assets.Scripts.UI.Prefabs;
 
 namespace Assets.Scripts.UI
 {
@@ -20,6 +21,9 @@ namespace Assets.Scripts.UI
         public TextMeshProUGUI characterName;
         public Image image;
         public List<EffectUI> effects;
+        public FloatingText valueText;
+
+
         private CharacterVisual characterVisual;
         private EffectIconDatabase _effectDb;
 
@@ -36,9 +40,10 @@ namespace Assets.Scripts.UI
             }
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(int target,int amount)
         {
-            healthbar.SetHealthSmooth(amount);
+            healthbar.SetHealthSmooth(target);
+            valueText.Show(amount, false);
             StartCoroutine(PlayHitAnimation());
         }
 
@@ -46,10 +51,10 @@ namespace Assets.Scripts.UI
         {
             StartCoroutine(PlayAttackAnimation());
         }
-        public void Heal(int amount)
+        public void Heal(int target,int amount)
         {
-            healthbar.SetHealthSmooth(amount);
-            // TODO: add heal animation and implement logic here
+            healthbar.SetHealthSmooth(target);
+            valueText.Show(amount, true);
         }
         public void ApplyEffect()
         {

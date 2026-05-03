@@ -8,7 +8,31 @@
   <a href="https://youtu.be/XRCgYCd0nDU">▶️ Watch Full Playthrough (3 min)</a>
 </p>
 
-## 📌 Overview
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [Gameplay Loop](#gameplay-loop)
+- [Map System](#map-system)
+- [Combat System](#combat-system)
+- [Event-Based Combat Reconciliation](#event-based-combat-reconciliation)
+- [Progression System](#progression-system)
+- [Move System](#move-system)
+- [Save System](#save-system)
+- [Backend Architecture](#backend-architecture)
+- [Architecture Overview](#architecture-overview)
+- [How to Run](#how-to-run-the-project)
+- [Known Limitations](#known-limitations)
+- [Planned Improvements](#planned-improvements)
+
+---
+
+## 📌 Project Summary
+
+A full-stack turn-based RPG with server-authoritative combat, event-based reconciliation, and run-based progression built in Unity + ASP.NET Core.
+
+---
+
+## Overview
 
 A full-stack turn-based RPG prototype featuring a server-driven combat system, run-based progression, and modular game architecture built in Unity.
 
@@ -16,7 +40,7 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 
 ---
 
-## 🎮 Gameplay Loop
+## Gameplay Loop
 
 1. Start new run → fetch configuration from server  
 2. Traverse encounter map (5 nodes)  
@@ -28,7 +52,7 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 
 ---
 
-## 🗺️ Map System
+## Map System
 
 - 5-node encounter map (designed for future procedural generation)
 - Node states:
@@ -45,7 +69,7 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 
 ---
 
-## ⚔️ Combat System
+## Combat System
 
 - Turn-based combat (player vs monster)
 - Server-authoritative turn resolution
@@ -68,7 +92,7 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 
 ---
 
-## 🧠 Event-Based Combat Reconciliation
+## Event-Based Combat Reconciliation
 
 Instead of directly applying results, the server returns structured events:
 
@@ -87,7 +111,7 @@ Client responsibility:
 
 ---
 
-## 📈 Progression System
+## Progression System
 
 - XP-based leveling system
 - Flat stat scaling per level:
@@ -100,7 +124,7 @@ Client responsibility:
 
 ---
 
-## 🧙 Move System
+## Move System
 
 - 4 equipped move slots
 - Full move library (learned from monsters)
@@ -119,7 +143,7 @@ Client responsibility:
 
 ---
 
-## 💾 Save System
+## Save System
 
 - Single-slot save system
 - Save & Exit flow from map
@@ -133,7 +157,7 @@ Client responsibility:
 
 ---
 
-## 🌐 Backend Architecture
+## Backend Architecture
 
 - Server-driven run configuration (5 encounters)
 - Monster move selection endpoint (per turn)
@@ -142,7 +166,7 @@ Client responsibility:
 
 ---
 
-## 🧱 Architecture Overview
+## Architecture Overview
 
 ### Client
 - Unity (C#)
@@ -160,10 +184,47 @@ Client responsibility:
 - Stateless battle logic
 - Config-driven encounter generation
 - Turn resolution engine
-
+  
 ---
 
-## 🚧 Known Limitations
+## How to Run the Project
+
+### 🎮 Unity Client
+
+1. Open Unity Hub
+2. Click **Open Project**
+3. Select: `/Unity`
+4. Open scene: `MainMenu`
+5. Press Play ▶️
+---
+
+### 🌐 Backend Server (.NET 9 / ASP.NET Core)
+
+1. Navigate to server project folder: `/TurnBasedRPG.API`
+
+2. Restore dependencies: `dotnet restore`
+   
+3. Run the API: `dotnet run`
+
+4. API will be available at: `https://localhost:7203` or `http://localhost:5192`
+---
+
+### ⚠️ Important
+
+Make sure the backend is running before starting the Unity client, as the game depends on runtime API calls for:
+- run configuration
+- combat resolution
+---
+
+### 🧪 Recommended Flow
+
+1. Start backend (`dotnet run`)
+2. Open Unity project
+3. Press Play
+4. Click "Start New Run"
+---
+
+## Known Limitations
 
 - No final victory screen after last encounter
 - No visible XP/level UI during run
@@ -173,7 +234,7 @@ Client responsibility:
 
 ---
 
-## 🔮 Planned Improvements
+## Planned Improvements
 
 - Procedural map generation
 - Drag & drop move system
@@ -186,11 +247,9 @@ Client responsibility:
 
 ---
 
-## 🎥 Full Playthrough Demo
+## Full Playthrough Demo
 
-<p align="center">
-  <a href="https://youtu.be/XRCgYCd0nDU">▶️ Watch Full Playthrough</a>
-</p>
+Full demo included above
 
 Includes:
 - Start new run
@@ -205,4 +264,4 @@ Includes:
 ## 🧑‍💻 Author
 
 **David Novaković**  
-**LinkedIn:** www.linkedin.com/in/novakovic-david
+**LinkedIn:** https://www.linkedin.com/in/novakovic-david

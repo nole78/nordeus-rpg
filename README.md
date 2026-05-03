@@ -174,7 +174,7 @@ Client responsibility:
 ## 🎥 Full Playthrough Demo
 
 📌 Full gameplay recording:  
-<!-- Insert full video link here -->
+https://youtu.be/XRCgYCd0nDU
 
 Includes:
 - Start new run

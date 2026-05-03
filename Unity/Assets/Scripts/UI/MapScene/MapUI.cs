@@ -35,6 +35,8 @@ public class MapUI : MonoBehaviour
 
             bool unlocked = CanAccess(enemy);
             nodes[i].SetInteractable(unlocked);
+            if (GameManager.Instance.IsEnemyDefeated(enemy.Id))
+                nodes[i].SetBeaten();
         }
 
         var moves = GameManager.Instance.Player.Hero.Moves;

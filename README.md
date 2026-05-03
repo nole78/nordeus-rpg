@@ -69,7 +69,7 @@ Client responsibility:
 - Reconstruct battle visualization deterministically
 
 📽️ **Demo: Battle Log + Event Replay**  
-<!-- Insert video/GIF link here -->
+![Battle Log Demo](README-assets/BattleLogDemo.gif)
 
 ---
 

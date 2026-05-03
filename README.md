@@ -99,7 +99,7 @@ Client responsibility:
   - Effect sprites
 
 📽️ **Demo: Move Management System**  
-<!-- Insert video/GIF link here -->
+![Move Demo](README-assets/MoveDemo.gif)
 
 ---
 

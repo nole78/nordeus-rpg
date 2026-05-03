@@ -31,7 +31,9 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 - Move management available between battles
 
 📽️ **Demo: Map Navigation & Node States**  
-<!-- Insert video/GIF link here -->
+<p align="center">
+  <img src="README-assets/MapDemo.gif" width="500" />
+</p>
 
 ---
 
@@ -52,7 +54,9 @@ The player progresses through a 5-node encounter map, fighting monsters in seque
 - Floating combat text (damage/heal feedback)
 
 📽️ **Demo: Full Battle Showcase**  
-![Combat Demo](README-assets/CombatDemo.gif)
+<p align="center">
+  <img src="README-assets/CombatDemo.gif" width="500" />
+</p>
 
 ---
 
@@ -69,7 +73,9 @@ Client responsibility:
 - Reconstruct battle visualization deterministically
 
 📽️ **Demo: Battle Log + Event Replay**  
-![Battle Log Demo](README-assets/BattleLogDemo.gif)
+<p align="center">
+  <img src="README-assets/BattleLogDemo.gif" width="500" />
+</p>
 
 ---
 
@@ -99,7 +105,9 @@ Client responsibility:
   - Effect sprites
 
 📽️ **Demo: Move Management System**  
-![Move Demo](README-assets/MoveDemo.gif)
+<p align="center">
+  <img src="README-assets/MoveDemo.gif" width="500" />
+</p>
 
 ---
 
@@ -111,7 +119,9 @@ Client responsibility:
 - Overwrites previous run intentionally
 
 📽️ **Demo: Save/Load Flow**  
-![Save Demo](README-assets/SaveDemo.gif)
+<p align="center">
+  <img src="README-assets/SaveDemo.gif" width="500" />
+</p>
 
 ---
 

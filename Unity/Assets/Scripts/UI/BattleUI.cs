@@ -90,7 +90,7 @@ public class BattleUI : MonoBehaviour
             }
         }
 
-        var grouped = events.GroupBy(e => e.ActionIndex);
+        var grouped = events.GroupBy(e => e.MoveId);
         foreach (var eventGroup in grouped)
         {
             LogAction(eventGroup.FirstOrDefault(), state);

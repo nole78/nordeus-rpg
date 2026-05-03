@@ -59,4 +59,10 @@ public class MapUI : MonoBehaviour
 
         return GameManager.Instance.IsEnemyDefeated(prevEnemy.Id);
     }
+
+    public void onMainMenuClicked()
+    {
+        Destroy(GameManager.Instance);
+        SceneManager.LoadScene("MainMenu");
+    }
 }

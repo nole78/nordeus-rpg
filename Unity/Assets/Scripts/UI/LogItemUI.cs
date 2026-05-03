@@ -16,5 +16,10 @@ namespace Assets.Scripts.UI
         {
             text.text = message;
         }
+
+        public void SetAttackerColor(bool isHero)
+        {
+            text.color = isHero ? Color.green : Color.red;
+        }
     }
 }

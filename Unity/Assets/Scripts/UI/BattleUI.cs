@@ -19,6 +19,7 @@ public class BattleUI : MonoBehaviour
     public CharacterVisualDatabase characterDb;
     public EffectIconDatabase effectDb;
     public List<MoveUI> moves;
+    public BattleLogUI battleLog;
     void Start() 
     {
         var hero = GameManager.Instance.Player.Hero;
@@ -90,71 +91,70 @@ public class BattleUI : MonoBehaviour
         }
 
         var grouped = events.GroupBy(e => e.ActionIndex);
-        // TODO: add combat log using grouped and remove this logic with events
-        for (int i = 0; i < events.Count; i++)
+        foreach (var eventGroup in grouped)
         {
-            var attackerUI = events[i].AttackerId == state.Hero.Id ? heroUI : enemyUI;
-            var targetUI = events[i].TargetId == state.Hero.Id ? heroUI : enemyUI;
-
-            heroUI.DisplayEffects(state.Hero.StatusEffects);
-            enemyUI.DisplayEffects(state.Enemy.StatusEffects);
-
-            switch(events[i].Kind)
+            LogAction(eventGroup.FirstOrDefault(), state);
+            foreach (var e in eventGroup)
             {
-                case MoveKind.Damage:
-                {
-                    attackerUI.Attack();
-                    yield return new WaitForSeconds(0.2f);
+                var attackerUI = e.AttackerId == state.Hero.Id ? heroUI : enemyUI;
+                var targetUI = e.TargetId == state.Hero.Id ? heroUI : enemyUI;
 
-                    if (events[i].TargetId == state.Hero.Id)
-                    {
-                        tempHeroHp -= events[i].Value;
-                        heroUI.TakeDamage(tempHeroHp);
-                    }
-                    else
-                    {
-                        tempEnemyHp -= events[i].Value;
-                        enemyUI.TakeDamage(tempEnemyHp);
-                    }
-                }
-                ; break;
-                case MoveKind.Heal:
+                switch (e.Kind)
                 {
-                    if (events[i].TargetId == state.Hero.Id)
-                    {
-                        tempHeroHp += events[i].Value;
-                        heroUI.TakeDamage(tempHeroHp);
-                    }
-                    else
-                    {
-                        tempEnemyHp += events[i].Value;
-                        enemyUI.TakeDamage(tempEnemyHp);
-                    }
-                } ; break;
-                case MoveKind.ApplyStatus:
-                {
-                        if (events[i].TargetId == state.Hero.Id)
+                    case MoveKind.Damage:
                         {
-                            heroTempEffects.Add(events[i].AppliedEffect);
-                            heroUI.DisplayEffects(heroTempEffects);
+                            attackerUI.Attack();
+                            yield return new WaitForSeconds(0.2f);
+
+                            if (e.TargetId == state.Hero.Id)
+                            {
+                                tempHeroHp -= e.Value;
+                                heroUI.TakeDamage(tempHeroHp);
+                            }
+                            else
+                            {
+                                tempEnemyHp -= e.Value;
+                                enemyUI.TakeDamage(tempEnemyHp);
+                            }
                         }
-                        else
-                        {
-                            enemyTempEffect.Add(events[i].AppliedEffect);
-                            enemyUI.DisplayEffects(enemyTempEffect);
-                        }
-                    }
                     ; break;
+                    case MoveKind.Heal:
+                        {
+                            if (e.TargetId == state.Hero.Id)
+                            {
+                                tempHeroHp += e.Value;
+                                heroUI.TakeDamage(tempHeroHp);
+                            }
+                            else
+                            {
+                                tempEnemyHp += e.Value;
+                                enemyUI.TakeDamage(tempEnemyHp);
+                            }
+                        }
+                        ; break;
+                    case MoveKind.ApplyStatus:
+                        {
+                            if (e.TargetId == state.Hero.Id)
+                            {
+                                heroTempEffects.Add(e.AppliedEffect);
+                                heroUI.DisplayEffects(heroTempEffects);
+                            }
+                            else
+                            {
+                                enemyTempEffect.Add(e.AppliedEffect);
+                                enemyUI.DisplayEffects(enemyTempEffect);
+                            }
+                        }
+                        ; break;
+                }
+                if (eventGroup.Last() == e)
+                    yield return new WaitForSeconds(0.2f);
+                else
+                    yield return new WaitForSeconds(0.8f);
             }
-            // Displays updated effect durations
             heroUI.DisplayEffects(state.Hero.StatusEffects);
             enemyUI.DisplayEffects(state.Enemy.StatusEffects);
-            if (i != events.Count - 1)
-                yield return new WaitForSeconds(0.8f);
-            else
-                yield return new WaitForSeconds(0.2f);
         }
-
 
         if (state.Hero.Health.IsDead() || state.Enemy.Health.IsDead())
         {
@@ -173,6 +173,14 @@ public class BattleUI : MonoBehaviour
         {
             EnableButtons();
         }
+    }
+
+    void LogAction(CombatEvent e, BattleState state)
+    {
+        bool isHero = e.AttackerId == state.Hero.Id;
+        string attacker = isHero ? "Hero" : state.Enemy.Name;
+        string moveName = isHero ? state.Hero.Moves.First(m => m.Id == e.MoveId).Name : state.Enemy.Moves.First(m => m.Id == e.MoveId).Name;
+        battleLog.AddLog($"{attacker} used move {moveName}!",isHero);
     }
     void DisableButtons()
     {

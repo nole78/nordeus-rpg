@@ -78,6 +78,7 @@ namespace TurnBasedRPG.API.Services.CombatService
                 }
                 events.Add(new CombatEvent
                 {
+                    MoveId = move.Id,
                     AttackerId = attacker.Id,
                     TargetId = target.Id,
                     IsSelf = effect.Target == TargetType.Self ? true : false,

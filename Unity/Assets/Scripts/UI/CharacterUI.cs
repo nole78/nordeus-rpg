@@ -49,11 +49,11 @@ namespace Assets.Scripts.UI
         public void Heal(int amount)
         {
             healthbar.SetHealthSmooth(amount);
-            // TODO: add heal sprite and implement logic here
+            // TODO: add heal animation and implement logic here
         }
         public void ApplyEffect()
         {
-            // TODO: add effect icons to character prefab and implement effect show logic here
+            // TODO: add effect apply animation and its logic here
         }
         public void DisplayEffects(List<StatusEffect> statusEffects)
         {

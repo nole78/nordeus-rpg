@@ -14,10 +14,11 @@ namespace Assets.Scripts.UI
         public LogItemUI logPrefab;
         public ScrollRect scrollRect;
 
-        public void AddLog(string message)
+        public void AddLog(string message, bool isHero)
         {
             var log = Instantiate(logPrefab, content);
             log.SetText(message);
+            log.SetAttackerColor(isHero);
 
             // limit battle log to hold 50 messages max
             if (content.childCount > 50)

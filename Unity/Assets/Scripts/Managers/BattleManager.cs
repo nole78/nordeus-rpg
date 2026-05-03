@@ -9,7 +9,6 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance;
     private BattleState _state;
-
     private void Awake()
     {
         Instance = this;
@@ -39,9 +38,7 @@ public class BattleManager : MonoBehaviour
     private void OnSucces(NextMoveResponse response)
     {
         _state = response.UpdatedState;
-        Debug.Log(JsonConvert.SerializeObject(response));
-        Debug.Log(_state.Enemy.Health.CurrentHealth);
-        FindObjectOfType<BattleUI>().Refresh(_state);
+        FindObjectOfType<BattleUI>().Refresh(_state,response.Events);
     }
 
     private void OnError(string err)

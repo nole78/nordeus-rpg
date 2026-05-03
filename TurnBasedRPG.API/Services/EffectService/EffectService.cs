@@ -5,10 +5,10 @@ namespace TurnBasedRPG.API.Services.EffectService
 {
     public class EffectService : IEffectService
     {
-        public bool ApplyEffect(Character target, MoveEffect effect)
+        public StatusEffect? ApplyEffect(Character target, MoveEffect effect)
         {
             if (effect.StatusEffect == null)
-                return false;
+                return null;
             
             var def = effect.StatusEffect;
             var existing = target.StatusEffects.FirstOrDefault(e => e.Type == def.Type);
@@ -18,25 +18,33 @@ namespace TurnBasedRPG.API.Services.EffectService
                 {
                     case StackingRule.Stack:
                         {
-                            target.StatusEffects.Add(CreateEffect(def));
+                            var newEffect = CreateEffect(def);
+                            target.StatusEffects.Add(newEffect);
+                            return newEffect;
                         }
-                        ; break;
+                        ;
                     case StackingRule.Replace:
                         {
                             existing.Value = def.Value;
                             existing.RemainingTurns = def.Duration;
+                            return existing;
                         }
-                        ; break;
+                        ;
                     case StackingRule.RefreshDuration:
                         {
                             existing.RemainingTurns = def.Duration;
+                            return existing;
                         }
-                        ; break;
+                        ;
                 }
+                return null;
             }
             else
-                target.StatusEffects.Add(CreateEffect(def));
-            return true;  
+            {
+                var newEffect = CreateEffect(def);
+                target.StatusEffects.Add(newEffect);
+                return newEffect;
+            }
         }
 
         public StatusEffect CreateEffect(EffectDefinition def)
@@ -45,10 +53,11 @@ namespace TurnBasedRPG.API.Services.EffectService
             {
                 return new StatusEffect
                 {
+                    Id = def.Id,
                     Type = def.Type,
                     Value = def.Value,
                     RemainingTurns = def.Duration,
-                    SkipFirstTick = IsOffensiveEffect(def.Type)
+                    SkipFirstTick = true
                 };
             }
             catch

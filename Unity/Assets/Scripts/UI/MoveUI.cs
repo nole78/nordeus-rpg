@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,19 +14,25 @@ namespace Assets.Scripts.UI
     {
         public Button button;
         public TextMeshProUGUI text;
-        public string moveId;
+        public Image icon;
+        public Image selectionHighlight;
 
-        public void Init(Action onClick,string name,string id)
+        public void Init(Action onClick,string name,Sprite sprite)
         {
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => onClick());
             text.text = name;
-            moveId = id;
+
+            icon.sprite = sprite;
         }
 
         public void SetInteractable(bool value)
         {
             button.interactable = value;
+        }
+        public void SetSelected(bool value)
+        {
+            selectionHighlight.gameObject.SetActive(value);
         }
     }
 }

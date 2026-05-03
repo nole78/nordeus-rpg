@@ -84,9 +84,6 @@ Client responsibility:
 - Monster kill → XP gain
 - Level-up triggers stat increase
 
-📽️ **Demo: Level Up Sequence**  
-<!-- Insert video/GIF link here -->
-
 ---
 
 ## 🧙 Move System
@@ -114,7 +111,7 @@ Client responsibility:
 - Overwrites previous run intentionally
 
 📽️ **Demo: Save/Load Flow**  
-<!-- Insert video/GIF link here -->
+![Save Demo](README-assets/SaveDemo.gif)
 
 ---
 
